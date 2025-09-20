@@ -1,69 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Personal website of Ashton Reyes, showcasing skills, resume, and contact information.">
+    <meta name="author" content="Ashton Reyes">
+    <title>Ashton Reyes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+    <link rel="icon" type="image/x-icon" href="images/icons/a.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <header class="header">
-            <nav class="navigation">
-                <div class="logo">
-                    <h1>Ashton Reyes</h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Resume</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <main class="main">
-            <section id="home" class="hero">
-                <div class="hero-content">
-                    <h2>WORK IN PROGRESS!!! (lol)</h2>
-                    <p>Creating exceptional digital experiences with clean, professional design.</p>
-                    <button class="cta-button">Get Started</button>
-                </div>
-            </section>
-            
-            <section id="about" class="about">
-                <div class="content-wrapper">
-                    <h2>About Me</h2>
-                    <p>I am currently an undergraduate student at Stony Brook University. Focusing towards a B.S. in Computer Science and a B.S. in Applied Mathematics and Statsitc, I hope to break into the tech industry!</p>
-                </div>
-            </section>
-            
-            <section id="services" class="services">
-                <div class="content-wrapper">
-                    <h2>Services</h2>
-                    <div class="services-grid">
-                        <div class="service-card">
-                            <h3>Web Design</h3>
-                            <p>Modern, responsive web design solutions.</p>
-                        </div>
-                        <div class="service-card">
-                            <h3>Development</h3>
-                            <p>Clean, efficient code development.</p>
-                        </div>
-                        <div class="service-card">
-                            <h3>Consulting</h3>
-                            <p>Strategic digital consulting services.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        <footer class="footer">
-            <p>&copy; 2024 Professional Portfolio. All rights reserved.</p>
-        </footer>
-    </div>
-    
-    <script src="script.js"></script>
+    <nav>
+        <div class="nav-left">
+            <h1>Ashton Reyes</h1>
+        </div>
+        <div class="nav-right">
+            <a href="https://github.com/ashton-reyes">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/ashton-reyes">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="your-resume-link">
+                <i class="fas fa-file-pdf"></i> Resume
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <h2>Welcome! I am Ashton</h2>
+                <p>I'm currently a second-year student at Stony Brook University, as a double major in Computer Science & Applied Mathetmatics and Statistics.</p>
+                <p>I'm actively building my expertise in programming, web development, and data science while working toward breaking into the tech industry.</p>
+            </div>
+            <div class="hero-right">
+                <img src="images/photos/ashton-reyes-1.png" alt="Ashton Reyes Profile Photo">
+            </div>
+        </div>
+
+    </section>
 </body>
+
 </html>

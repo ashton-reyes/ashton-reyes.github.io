@@ -1,0 +1,75 @@
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    margin-top: 20px;
+}
+
+.nav-left {
+    margin-right: auto;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 20px;
+    gap: 08px;
+    margin-right: 10Px;
+}
+
+/* Hero Section Styling */
+.hero {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-left {
+    flex: 1;
+}
+
+.hero-left h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero-left p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.hero-right {
+    flex: 0 0 auto;
+}
+
+.hero-right img {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    object-fit: cover;
+    object-position: center top;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
