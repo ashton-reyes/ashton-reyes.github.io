@@ -70,6 +70,6 @@ nav {
     height: 300px;
     border-radius: 20px;
     object-fit: cover;
-    object-position: center top;
+    object-position: 70% 20%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
