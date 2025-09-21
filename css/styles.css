@@ -72,4 +72,22 @@ nav {
     object-fit: cover;
     object-position: 70% 20%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Slide down animation */
+    animation: slideDown 1.2s ease-out;
+}
+
+/* Keyframe animation for sliding down */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
