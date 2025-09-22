@@ -95,13 +95,13 @@ nav {
 .skills {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 40px 80px 40px; /* Reduced top padding from 80px to 40px */
+    padding: 30px 40px 60px 40px; /* Reduced from 40px 40px 80px 40px */
     text-align: center;
 }
 
 .skills h1 {
-    font-size: 3rem;
-    margin-bottom: 60px;
+    font-size: 2.2rem; /* Reduced from 3rem */
+    margin-bottom: 40px; /* Reduced from 60px */
     text-align: center;
     position: relative;
 }
@@ -109,22 +109,22 @@ nav {
 .skills h1::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -10px; /* Reduced from -15px */
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
+    width: 80px; /* Reduced from 100px */
+    height: 3px; /* Reduced from 4px */
     background: linear-gradient(90deg, #000, #333);
     border-radius: 2px;
 }
 
 .skill-category {
-    margin-bottom: 50px;
+    margin-bottom: 35px; /* Reduced from 50px */
 }
 
 .skill-category h2 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-size: 1.4rem; /* Reduced from 1.8rem */
+    margin-bottom: 20px; /* Reduced from 30px */
     color: #333;
     position: relative;
     display: inline-block;
@@ -133,10 +133,10 @@ nav {
 .skill-category h2::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -6px; /* Reduced from -8px */
     left: 0;
     width: 100%;
-    height: 3px;
+    height: 2px; /* Reduced from 3px */
     background: #000;
     border-radius: 2px;
 }
@@ -144,10 +144,10 @@ nav {
 .skill-category h2::before {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -6px; /* Reduced from -8px */
     left: 0;
     width: 30%;
-    height: 3px;
+    height: 2px; /* Reduced from 3px */
     background: #333;
     border-radius: 2px;
     z-index: 1;
@@ -157,8 +157,8 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
+    gap: 15px; /* Reduced from 20px */
+    margin-bottom: 30px; /* Reduced from 40px */
 }
 
 .skill-item {
@@ -166,30 +166,30 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 15px; /* Reduced from 20px */
     border: 2px solid #333;
-    border-radius: 12px;
+    border-radius: 10px; /* Reduced from 12px */
     background: white;
-    min-width: 120px;
-    min-height: 100px;
+    min-width: 100px; /* Reduced from 120px */
+    min-height: 80px; /* Reduced from 100px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Reduced from -5px */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow */
 }
 
 .skill-item i {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2rem; /* Reduced from 2.5rem */
+    margin-bottom: 8px; /* Reduced from 10px */
     color: #333;
 }
 
 .skill-item span {
     font-weight: 500;
     color: #333;
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reduced from 0.9rem */
 }
 
 /* Footer Styling */
