@@ -31,11 +31,10 @@ nav {
     margin-right: 10Px;
 }
 
-/* Hero Section Styling */
 .hero {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 40px 40px 40px; /* Reduced bottom padding from 80px to 40px */
+    padding: 80px 40px 40px 40px;
 }
 
 .hero-content {
@@ -73,14 +72,12 @@ nav {
     object-position: 70% 20%;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     
-    /* Slide down animation */
     animation: slideDown 1.2s ease-out;
 }
 
-/* Keyframe animation for sliding down */
 @keyframes slideDown {
     0% {
-        transform: translateY(-100vh);
+        transform: translateY(35vh);
         opacity: 0;
     }
     60% {
@@ -95,13 +92,13 @@ nav {
 .skills {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 30px 40px 60px 40px; /* Reduced from 40px 40px 80px 40px */
+    padding: 30px 40px 30px 40px; 
     text-align: center;
 }
 
 .skills h1 {
-    font-size: 2.2rem; /* Reduced from 3rem */
-    margin-bottom: 40px; /* Reduced from 60px */
+    font-size: 2.2rem; 
+    margin-bottom: 40px; 
     text-align: center;
     position: relative;
 }
@@ -109,11 +106,11 @@ nav {
 .skills h1::after {
     content: '';
     position: absolute;
-    bottom: -10px; /* Reduced from -15px */
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; /* Reduced from 100px */
-    height: 3px; /* Reduced from 4px */
+    width: 80px; 
+    height: 3px;
     background: linear-gradient(90deg, #000, #333);
     border-radius: 2px;
 }
@@ -144,10 +141,10 @@ nav {
 .skill-category h2::before {
     content: '';
     position: absolute;
-    bottom: -6px; /* Reduced from -8px */
+    bottom: -6px; 
     left: 0;
     width: 30%;
-    height: 2px; /* Reduced from 3px */
+    height: 2px;
     background: #333;
     border-radius: 2px;
     z-index: 1;
@@ -157,8 +154,8 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; /* Reduced from 20px */
-    margin-bottom: 30px; /* Reduced from 40px */
+    gap: 15px; 
+    margin-bottom: 30px; 
 }
 
 .skill-item {
@@ -166,33 +163,73 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px; /* Reduced from 20px */
+    padding: 15px; 
     border: 2px solid #333;
-    border-radius: 10px; /* Reduced from 12px */
+    border-radius: 10px; 
     background: white;
-    min-width: 100px; /* Reduced from 120px */
-    min-height: 80px; /* Reduced from 100px */
+    min-width: 100px;
+    min-height: 80px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-3px); /* Reduced from -5px */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
 }
 
 .skill-item i {
-    font-size: 2rem; /* Reduced from 2.5rem */
-    margin-bottom: 8px; /* Reduced from 10px */
+    font-size: 2rem; 
+    margin-bottom: 8px; 
     color: #333;
 }
 
 .skill-item span {
+
     font-weight: 500;
     color: #333;
-    font-size: 0.8rem; /* Reduced from 0.9rem */
+    font-size: 0.8rem;
 }
 
-/* Footer Styling */
+.title {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.first {
+    display: flex;
+    justify-content: center;
+}
+
+.first img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 30% 20%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.second {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.second img { 
+    margin-left: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 70% 20%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+
 .footer {
     background-color: #f8f9fa;
     padding: 40px 20px;
