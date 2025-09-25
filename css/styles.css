@@ -190,6 +190,10 @@ nav {
     font-size: 0.8rem;
 }
 
+.about-me {
+    display: none;
+}
+
 .title {
     font-size: 1.5rem;
     display: flex;
