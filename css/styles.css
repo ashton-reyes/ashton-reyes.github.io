@@ -23,7 +23,19 @@ nav {
     margin-right: auto;
 }
 
+.nav-subtitle {
+    margin: 5px 0 2px 0;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
 
+.nav-location {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 400;
+}
 
 .nav-right a {
     text-decoration: none;
