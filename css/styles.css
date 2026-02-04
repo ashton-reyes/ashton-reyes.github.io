@@ -89,9 +89,94 @@ nav {
     animation: slideDown 1.2s ease-out;
 }
 
+/* Project Highlights Section */
+.project-highlights {
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 40px 40px 0 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 36px 32px;
+    min-width: 260px;
+    max-width: 340px;
+    flex: 1 1 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #e0e0e0;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+    transform: translateY(-8px);
+    border-color: #222;
+}
+
+.project-card:hover .card-icon {
+    transform: scale(1.15);
+}
+
+.project-card h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+    color: #2d2d2d;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.project-card p {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+/* Game Development Card */
+.project-card.game-dev .card-icon {
+    color: #222;
+}
+
+.project-card.game-dev:hover {
+    border-color: #222;
+    background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+}
+
+.project-card.game-dev:hover .card-icon {
+    color: #000;
+}
+
+/* Data Science Card */
+.project-card.data-sci .card-icon {
+    color: #222;
+}
+
+.project-card.data-sci:hover {
+    border-color: #222;
+    background: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+}
+
+.project-card.data-sci:hover .card-icon {
+    color: #000;
+}
+
 @keyframes slideDown {
     0% {
-        transform: translateY(35vh);
+        transform: translateY(-80px);
         opacity: 0;
     }
     60% {
@@ -104,15 +189,15 @@ nav {
 }
 
 .skills {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 30px 40px 30px 40px; 
+    padding: 20px 30px; 
     text-align: center;
 }
 
 .skills h1 {
-    font-size: 2.2rem; 
-    margin-bottom: 40px; 
+    font-size: 1.8rem; 
+    margin-bottom: 25px; 
     text-align: center;
     position: relative;
 }
@@ -120,22 +205,22 @@ nav {
 .skills h1::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -6px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px; 
-    height: 3px;
+    width: 60px; 
+    height: 2px;
     background: linear-gradient(90deg, #000, #333);
     border-radius: 2px;
 }
 
 .skill-category {
-    margin-bottom: 35px; /* Reduced from 50px */
+    margin-bottom: 20px;
 }
 
 .skill-category h2 {
-    font-size: 1.4rem; /* Reduced from 1.8rem */
-    margin-bottom: 20px; /* Reduced from 30px */
+    font-size: 1.1rem;
+    margin-bottom: 12px;
     color: #333;
     position: relative;
     display: inline-block;
@@ -144,32 +229,20 @@ nav {
 .skill-category h2::after {
     content: '';
     position: absolute;
-    bottom: -6px; /* Reduced from -8px */
+    bottom: -4px;
     left: 0;
     width: 100%;
-    height: 2px; /* Reduced from 3px */
-    background: #000;
-    border-radius: 2px;
-}
-
-.skill-category h2::before {
-    content: '';
-    position: absolute;
-    bottom: -6px; 
-    left: 0;
-    width: 30%;
     height: 2px;
-    background: #333;
+    background: #222;
     border-radius: 2px;
-    z-index: 1;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px; 
-    margin-bottom: 30px; 
+    gap: 8px; 
+    margin-bottom: 15px; 
 }
 
 .skill-item {
@@ -177,76 +250,31 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 15px; 
-    border: 2px solid #333;
-    border-radius: 10px; 
+    padding: 8px 12px; 
+    border: 1.5px solid #333;
+    border-radius: 8px; 
     background: white;
-    min-width: 100px;
-    min-height: 80px; 
+    min-width: 70px;
+    min-height: 55px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-item:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
 }
 
 .skill-item i {
-    font-size: 2rem; 
-    margin-bottom: 8px; 
+    font-size: 1.3rem; 
+    margin-bottom: 4px; 
     color: #333;
 }
 
 .skill-item span {
-
     font-weight: 500;
     color: #333;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
-
-.about-me {
-    display: none;
-}
-
-.title {
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-}
-
-.first {
-    display: flex;
-    justify-content: center;
-}
-
-.first img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: 30% 20%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
-.second {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.second img { 
-    margin-left: 20px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: 70% 20%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
 
 .footer {
     background-color: #f8f9fa;
@@ -298,4 +326,277 @@ nav {
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+/* Project Page Styles */
+.project-nav {
+    display: flex;
+    justify-content: center;
+    padding: 25px 40px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #222;
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: color 0.2s ease;
+}
+
+.nav-brand:hover {
+    color: #555;
+}
+
+.project-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+}
+
+.project-hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.project-hero-icon {
+    font-size: 3.5rem;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.project-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+}
+
+.project-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.project-description h2,
+.project-gallery h2,
+.project-link-section h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.project-description h2::after,
+.project-gallery h2::after,
+.project-link-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: #222;
+    border-radius: 2px;
+}
+
+.project-description p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    background: #f5f5f5;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    border: 2px dashed #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: #222;
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-link-section {
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #eaeaea 100%);
+    border-radius: 16px;
+}
+
+.project-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: #222;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.project-cta:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.project-cta i {
+    font-size: 1rem;
+}
+
+/* Tech Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.tech-tag {
+    background: #222;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Project Description Sections */
+.project-description h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.project-description p {
+    margin-bottom: 12px;
+}
+
+.project-description strong {
+    color: #111;
+}
+
+/* Highlight Sections with Images */
+.highlight-section {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 30px 0;
+    padding: 25px;
+    background: #fafafa;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.highlight-section:nth-child(odd) {
+    flex-direction: row;
+}
+
+.highlight-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.highlight-text {
+    flex: 1;
+}
+
+.highlight-text h3 {
+    margin-top: 0;
+}
+
+.highlight-image {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highlight-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px dashed #ddd;
+    background: #f0f0f0;
+}
+
+.highlight-image:hover img {
+    border-color: #222;
+}
+
+.image-caption {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 8px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .highlight-section,
+    .highlight-section:nth-child(odd),
+    .highlight-section:nth-child(even) {
+        flex-direction: column;
+    }
+    
+    .highlight-image {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+
+/* WIP Section */
+.wip-section {
+    text-align: center;
+    padding: 100px 40px;
+    background: #fafafa;
+    border-radius: 16px;
+    border: 2px dashed #ddd;
+}
+
+.wip-section h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 15px;
+    letter-spacing: 8px;
+}
+
+.wip-section p {
+    font-size: 1.2rem;
+    color: #888;
 }

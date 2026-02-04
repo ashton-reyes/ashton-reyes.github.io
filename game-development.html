@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development - Ashton Reyes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="project-nav">
+        <a href="index.html" class="nav-brand">Ashton Reyes</a>
+    </nav>
+
+    <main class="project-page">
+        <section class="project-hero">
+            <div class="project-hero-icon">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <h1>Word Chain</h1>
+            <p class="project-subtitle">A Roblox Word Puzzle Game</p>
+        </section>
+
+        <section class="project-content">
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>
+                    Word Chain is my first complete game—a word-chain puzzle experience built entirely in Roblox using <strong>Luau</strong>. 
+                    Players are given the first word in a themed chain and must guess the subsequent words using only their first letters as clues. 
+                    With multiple difficulty levels (Easy, Medium, Hard), custom-designed word lists, and systems for playtime tracking, hints, and skips, 
+                    the game offers engaging and replayable gameplay for puzzle enthusiasts.
+                </p>
+            </div>
+
+            <div class="project-description">
+                <h2>Technical Highlights</h2>
+                <p>Building this game taught me core game development concepts and Roblox-specific architecture:</p>
+                
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Client-Server Architecture</h3>
+                        <p>
+                            Implemented a clean separation between server and client logic using <strong>RemoteEvents</strong> and <strong>RemoteFunctions</strong>. 
+                            The server validates all player guesses via chat input, ensuring game integrity, while the client handles UI updates and visual feedback. 
+                            <strong>BindableEvents</strong> facilitate communication between local scripts (GUI ↔ Workspace logic).
+                        </p>
+                    </div>
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="Client-Server Architecture">
+                        <span class="image-caption">Remotes folder structure</span>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="Explorer showing script organization">
+                        <span class="image-caption">Script organization in Explorer</span>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Modular Code Organization</h3>
+                        <p>
+                            Scripts are organized into logical folders: server scripts in <strong>ServerScriptService</strong>, 
+                            client scripts split into <strong>GUI</strong> and <strong>Workspace</strong> handlers, 
+                            and <strong>ModuleScripts</strong> storing word chain data. This structure promotes maintainability and scalability.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Dynamic World Interaction</h3>
+                        <p>
+                            Using <strong>CollectionService</strong> with tagged objects (StartWalls, WordWalls, StageWalls), 
+                            the game dynamically manages physical walls that display word chains via <strong>SurfaceGui</strong>. 
+                            Walls become passable when answers are correct, with smooth transparency transitions.
+                        </p>
+                    </div>
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="Word walls in game">
+                        <span class="image-caption">SurfaceGui displaying word chains</span>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="Hint system UI">
+                        <span class="image-caption">Progressive hint reveal</span>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Progressive Hint System</h3>
+                        <p>
+                            Hints reveal letters incrementally—each use exposes one more character of the answer. 
+                            The system tracks hint state per stage and integrates with <strong>MarketplaceService</strong> for optional in-game purchases.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Data Persistence</h3>
+                        <p>
+                            Player progress is saved using Roblox's <strong>DataStoreService</strong>. 
+                            Each difficulty level tracks the player's current word list independently, allowing players to resume where they left off across sessions.
+                        </p>
+                    </div>
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="Leaderstats showing player data">
+                        <span class="image-caption">Player data and leaderstats</span>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-image">
+                        <img src="images/photos/placeholder.png" alt="UI buttons with animations">
+                        <span class="image-caption">Animated UI elements</span>
+                    </div>
+                    <div class="highlight-text">
+                        <h3>Polished UI/UX</h3>
+                        <p>
+                            Buttons feature hover animations using <strong>TweenService</strong> with easing functions. 
+                            Sound effects toggle on/off per player preference, and the interface updates reactively based on game state 
+                            (stage number, difficulty, completion status).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-description">
+                <h2>Technologies Used</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Luau</span>
+                    <span class="tech-tag">Roblox Studio</span>
+                    <span class="tech-tag">RemoteEvents</span>
+                    <span class="tech-tag">DataStoreService</span>
+                    <span class="tech-tag">CollectionService</span>
+                    <span class="tech-tag">TweenService</span>
+                    <span class="tech-tag">MarketplaceService</span>
+                    <span class="tech-tag">ProximityPrompts</span>
+                    <span class="tech-tag">SurfaceGui</span>
+                    <span class="tech-tag">Git/Rojo</span>
+                </div>
+            </div>
+
+            <div class="project-gallery">
+                <h2>Screenshots</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="images/photos/placeholder.png" alt="Game Screenshot 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photos/placeholder.png" alt="Game Screenshot 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photos/placeholder.png" alt="Game Screenshot 3">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/photos/placeholder.png" alt="Game Screenshot 4">
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-link-section">
+                <h2>Play the Game</h2>
+                <a href="https://www.roblox.com/games/96001826909249/Word-Chain" class="project-cta" target="_blank">
+                    <i class="fas fa-play"></i> Play on Roblox
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
