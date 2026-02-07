@@ -382,11 +382,26 @@ body::-webkit-scrollbar {
     color: #222;
     text-decoration: none;
     letter-spacing: -0.5px;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.nav-brand i {
+    font-size: 1rem;
+    transition: transform 0.2s ease;
 }
 
 .nav-brand:hover {
     color: #555;
+    background: #f5f5f5;
+}
+
+.nav-brand:hover i {
+    transform: translateX(-4px);
 }
 
 .project-page {
