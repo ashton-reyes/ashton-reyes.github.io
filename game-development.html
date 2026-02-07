@@ -22,15 +22,20 @@
             </div>
             <h1>Word Chain</h1>
             <p class="project-subtitle">A Roblox Word Puzzle Game</p>
+            
+            <div class="project-showcase">
+                <img src="images/screenshots/gamedev6.png" alt="Word Chain Roblox Game Page" class="showcase-image">
+                <img src="images/screenshots/gamedev7.png" alt="Word Chain Gameplay Screenshot" class="showcase-image">
+            </div>
         </section>
 
         <section class="project-content">
             <div class="project-description">
                 <h2>About the Project</h2>
                 <p>
-                    Word Chain is my first complete game—a word-chain puzzle experience built entirely in Roblox using <strong>Luau</strong>. 
-                    Players are given the first word in a themed chain and must guess the subsequent words using only their first letters as clues. 
-                    With multiple difficulty levels (Easy, Medium, Hard), custom-designed word lists, and systems for playtime tracking, hints, and skips, 
+                    Word Chain is my first Roblox game—a word-chain puzzle experience built entirely using the Roblox Studio game engine and <strong>Luau</strong> as the main scripting language. 
+                    Players are given the first word in a chain and must guess the subsequent words using only their first letters as clues. 
+                    With multiple difficulty levels, custom-designed word lists, and systems to offer players hints and skips, 
                     the game offers engaging and replayable gameplay for puzzle enthusiasts.
                 </p>
             </div>
@@ -107,7 +112,7 @@
                         </p>
                     </div>
                     <div class="highlight-image">
-                        <img src="images/photos/placeholder.png" alt="Leaderstats showing player data">
+                        <img src="images/screenshots/gamedev9.png" alt="Leaderstats showing player data">
                         <span class="image-caption">Player data and leaderstats</span>
                     </div>
                 </div>
@@ -166,6 +171,150 @@
                 <h2>Play the Game</h2>
                 <a href="https://www.roblox.com/games/96001826909249/Word-Chain" class="project-cta" target="_blank">
                     <i class="fas fa-play"></i> Play on Roblox
+                </a>
+            </div>
+        </section>
+
+        <!-- Slime Survival Section -->
+        <div class="project-divider"></div>
+        
+        <section class="project-hero">
+            <div class="project-hero-icon">
+                <i class="fas fa-code"></i>
+            </div>
+            <h1>Slime Survival</h1>
+            <p class="project-subtitle">A 2D Java Action Game — No Game Engine</p>
+            
+            <div class="project-showcase">
+                <img src="images/screenshots/gamedev8.png" alt="Slime Survival Gameplay Screenshot" class="showcase-image">
+            </div>
+        </section>
+
+        <section class="project-content">
+            <div class="project-description">
+                <h2>About the Project</h2>
+                <p>
+                    Slime Survival is a 2D top-down action game built entirely <strong>from scratch in Java</strong>—no game engine, no frameworks, just pure code. 
+                    Players navigate through 8 progressively challenging levels, battling different types of slimes while dodging incoming arrows. 
+                    The game features WASD movement, directional attacks using arrow keys or mouse clicks, and a health system with invincibility frames. 
+                    Every system—from rendering to collision detection to AI—was hand-coded, giving me deep insight into how games actually work under the hood.
+                </p>
+            </div>
+
+            <div class="project-description">
+                <h2>Technical Highlights</h2>
+                <p>Building a game without an engine forced me to implement core systems from the ground up:</p>
+                
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Custom Game Loop</h3>
+                        <p>
+                            Implemented a <strong>threaded game loop</strong> running at 60 ticks per second. 
+                            The loop handles all game logic—entity updates, collision checks, state management, and rendering—in a controlled, frame-independent cycle. 
+                            This taught me the fundamentals of real-time game architecture.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Java Swing & AWT Rendering</h3>
+                        <p>
+                            Used <strong>JFrame</strong> and <strong>JComponent</strong> for window management, with <strong>Graphics2D</strong> handling all sprite rendering. 
+                            Each entity draws itself using custom <code>drawSelf()</code> methods, with sprite selection based on direction and state (hurt, attacking, idle). 
+                            No external rendering libraries—just Java's built-in capabilities.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Object-Oriented Architecture</h3>
+                        <p>
+                            Clean separation of concerns with dedicated classes: <strong>User</strong> (player), <strong>Slime</strong> (enemies), 
+                            <strong>Arrow</strong> (projectiles), and <strong>Map</strong> (game manager). 
+                            Each class encapsulates its own state, behavior, collision logic, and rendering—demonstrating strong OOP principles.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Custom Collision Detection</h3>
+                        <p>
+                            Wrote collision detection algorithms from scratch using <strong>Euclidean distance calculations</strong> and bounding box checks. 
+                            The system handles player-enemy collisions (with knockback), attack hitbox detection, and arrow impacts—all without physics engine assistance.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Enemy AI & Variant System</h3>
+                        <p>
+                            Four distinct slime types—<strong>Regular</strong>, <strong>Fast</strong>, <strong>Tank</strong>, and <strong>Boss</strong>—each with unique stats (health, speed, size). 
+                            Slimes move randomly using tick-based direction changes and bounce off walls. 
+                            The type system uses constructor parameters to configure variants, keeping the codebase DRY.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>State Management & Invincibility Frames</h3>
+                        <p>
+                            Implemented damage states with <strong>invincibility frames</strong>—players and enemies can't take repeated damage within a cooldown window. 
+                            Attack states freeze player movement during swings. These mechanics required careful tick-based timing and boolean state tracking.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Custom Sprites & Visual Feedback</h3>
+                        <p>
+                            All sprites were custom-made and loaded via <strong>ImageIcon</strong>. 
+                            Characters have directional sprites (up, down, left, right) and hurt states. 
+                            Arrows display warning icons before entering the screen, and attack hitboxes render visually to give players feedback.
+                        </p>
+                        <p class="credit-link">
+                            Sprites by <a href="https://www.linkedin.com/in/pratyush-karki-enj0ymyprofil3/" target="_blank">Pratyush Karki</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-description">
+                <h2>Technologies Used</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Swing</span>
+                    <span class="tech-tag">AWT</span>
+                    <span class="tech-tag">Graphics2D</span>
+                    <span class="tech-tag">KeyListener</span>
+                    <span class="tech-tag">MouseListener</span>
+                    <span class="tech-tag">Threading</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">Custom Sprites</span>
+                </div>
+            </div>
+
+            <div class="project-description">
+                <h2>How to Run</h2>
+                <p>1. Clone the repository:</p>
+                <pre class="code-block"><code>git clone https://github.com/ashton-reyes/2D-Java-Slime-Game.git
+cd 2D-Java-Slime-Game</code></pre>
+                
+                <p>2. Run the game:</p>
+                <pre class="code-block"><code>javac -cp src\main\java -d build\classes src\main\java\*.java
+xcopy /E /I /Y "resources" "build\classes\resources"
+java -cp build\classes Map</code></pre>
+            </div>
+
+            <div class="project-link-section">
+                <h2>View Source Code</h2>
+                <a href="https://github.com/ashton-reyes/2D-Java-Slime-Game" class="project-cta" target="_blank">
+                    <i class="fab fa-github"></i> View on GitHub
                 </a>
             </div>
         </section>
