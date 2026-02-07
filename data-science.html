@@ -25,8 +25,181 @@
         </section>
 
         <section class="project-content">
-            <div class="wip-section">
-                <h2>WIP</h2>
+            <div class="project-description">
+                <h2>Linear Regression Analysis with R</h2>
+                <p>
+                    This project explores the relationship between an independent variable (IV) and dependent variable (DV) 
+                    through two distinct analytical approaches: <strong>multiple imputation for missing data</strong> (Part A) 
+                    and <strong>transformation with lack-of-fit testing</strong> (Part B). Both analyses were conducted in 
+                    <strong>RStudio</strong> using statistical packages like <code>mice</code> and <code>alr3</code>.
+                </p>
+            </div>
+
+            <!-- Part A Section -->
+            <div class="project-description">
+                <h2>Part A: Multiple Imputation & Linear Regression</h2>
+                <p>
+                    The first analysis tackled a common real-world problem: <strong>missing data</strong>. 
+                    Rather than simply deleting incomplete cases (which can bias results), I used the <code>mice</code> 
+                    package to perform multiple imputation—a statistically rigorous method that estimates missing values 
+                    based on observed data patterns.
+                </p>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Data Preparation & Merging</h3>
+                        <p>
+                            The dataset was split across two CSV files (one for IV, one for DV), requiring a merge operation 
+                            by subject ID. This is common in research settings where different measurements are collected separately.
+                        </p>
+                        <pre class="code-block"><code>PartA_IV <- read.csv("data/partA_IV.csv", header = TRUE)
+PartA_DV <- read.csv("data/partA_DV.csv", header = TRUE)
+PartA <- merge(PartA_IV, PartA_DV, by = "ID")</code></pre>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Exploring & Visualizing Missingness</h3>
+                        <p>
+                            Before imputation, I examined the missing data patterns using <code>md.pattern()</code>. 
+                            This revealed that of 574 total observations, 449 had complete data, while 60 were missing DV values, 
+                            59 were missing IV values, and 6 were missing both. Understanding these patterns is crucial for 
+                            choosing an appropriate imputation method.
+                        </p>
+                        <pre class="code-block"><code>any(is.na(PartA$IV))  # Check for missing IV
+any(is.na(PartA$DV))  # Check for missing DV
+md.pattern(PartA)     # Visualize missingness patterns</code></pre>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Multiple Imputation with MICE</h3>
+                        <p>
+                            The <strong>MICE</strong> (Multivariate Imputation by Chained Equations) algorithm was used with 
+                            the <code>norm.boot</code> method, which assumes normal distributions and uses bootstrapping for 
+                            uncertainty estimation. This creates multiple plausible datasets, accounting for the uncertainty 
+                            inherent in imputed values.
+                        </p>
+                        <pre class="code-block"><code># Keep rows with at least one observed value
+PartA_imp <- PartA[!is.na(PartA$IV) | !is.na(PartA$DV), ]
+
+# Run multiple imputation
+imp <- mice(PartA_imp, method = "norm.boot", printFlag = FALSE)
+
+# Extract completed dataset
+PartA_complete <- complete(imp)</code></pre>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Linear Model & Results</h3>
+                        <p>
+                            With the complete dataset, I fit a simple linear regression model: <strong>DV ~ IV</strong>. 
+                            The results were striking—the model explained <strong>73.4% of the variance</strong> 
+                            (adjusted R² = 0.7347), with a highly significant F-statistic of 1571 (p &lt; 2.2e-16).
+                        </p>
+                        <pre class="code-block"><code>M <- lm(DV ~ IV, data = PartA_complete)
+summary(M)
+# Slope: 5.16 | Intercept: 28.36
+# 95% CI for IV: [4.90, 5.41]</code></pre>
+                        <p>
+                            The estimated slope of <strong>5.16</strong> means that for every 1-unit increase in IV, 
+                            DV increases by approximately 5.16 units. The narrow 95% confidence interval (4.90 to 5.41) 
+                            confirms the precision of this estimate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part B Section -->
+            <div class="project-description">
+                <h2>Part B: Transformation & Lack-of-Fit Testing</h2>
+                <p>
+                    The second analysis addressed a different challenge: what if the relationship between IV and DV 
+                    isn't naturally linear? This part used <strong>variable transformation</strong> and <strong>data binning</strong> 
+                    to linearize the relationship, then verified the model fit using a formal <strong>lack-of-fit test</strong>.
+                </p>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Power Transformation</h3>
+                        <p>
+                            To stabilize variance and linearize the relationship, I applied a <strong>y^(-2/3)</strong> 
+                            power transformation to the dependent variable. This is a common technique when the original 
+                            data shows curvature or heteroscedasticity (non-constant variance).
+                        </p>
+                        <pre class="code-block"><code>data_trans <- data.frame(
+  xtrans = data$x,
+  ytrans = data$y^(-2/3)
+)</code></pre>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Binning Strategy</h3>
+                        <p>
+                            For the lack-of-fit test, I needed replicate observations at each x-value. Since the data 
+                            had continuous x-values, I created bins of width 0.3 using <code>cut()</code>, then computed 
+                            group means. This allowed the <code>pureErrorAnova()</code> function to separate pure error 
+                            from lack-of-fit.
+                        </p>
+                        <pre class="code-block"><code>breaks <- c(-Inf, seq(min(xtrans), max(xtrans), by = 0.3), Inf)
+groups <- cut(data_trans$xtrans, breaks = breaks)
+x_group_mean <- ave(data_trans$xtrans, groups)</code></pre>
+                    </div>
+                </div>
+
+                <div class="highlight-section">
+                    <div class="highlight-text">
+                        <h3>Pure Error ANOVA Results</h3>
+                        <p>
+                            The <code>pureErrorAnova()</code> function from the <code>alr3</code> package decomposes 
+                            residuals into <strong>pure error</strong> (variation within bins) and <strong>lack-of-fit</strong> 
+                            (systematic deviation from linearity). The key result: <strong>p = 0.5504</strong> for lack-of-fit, 
+                            which is not significant—meaning the linear model adequately fits the transformed data.
+                        </p>
+                        <pre class="code-block"><code>fit_b <- lm(y ~ x, data = data_bin)
+pureErrorAnova(fit_b)
+# Lack of fit: F = 0.3571, p = 0.5504 (not significant)
+# Regression: F = 332.07, p < 2e-16 (highly significant)</code></pre>
+                        <p>
+                            The regression F-value of <strong>332.07</strong> (p &lt; 2e-16) confirms a strong linear 
+                            association after transformation, while the non-significant lack-of-fit test validates that 
+                            the linear model is appropriate.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Takeaways -->
+            <div class="project-description">
+                <h2>Key Statistical Concepts</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">Multiple Imputation</span>
+                    <span class="tech-tag">MICE Algorithm</span>
+                    <span class="tech-tag">Linear Regression</span>
+                    <span class="tech-tag">ANOVA</span>
+                    <span class="tech-tag">Confidence Intervals</span>
+                    <span class="tech-tag">Power Transformation</span>
+                    <span class="tech-tag">Data Binning</span>
+                    <span class="tech-tag">Lack-of-Fit Test</span>
+                    <span class="tech-tag">Pure Error ANOVA</span>
+                </div>
+            </div>
+
+            <div class="project-description">
+                <h2>Technologies Used</h2>
+                <div class="tech-tags">
+                    <span class="tech-tag">R</span>
+                    <span class="tech-tag">RStudio</span>
+                    <span class="tech-tag">mice</span>
+                    <span class="tech-tag">alr3</span>
+                    <span class="tech-tag">knitr</span>
+                </div>
             </div>
         </section>
     </main>
